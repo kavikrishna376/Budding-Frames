@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Frame | Budding_Frames — Erode</title>
+  <meta name="description" content="Book your custom photo frame with Budding_Frames, Erode. Upload your photo, choose a frame and size, and place your order online or via WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%231a1714'/%3E%3Ccircle cx='50' cy='55' r='22' fill='none' stroke='%23c9a24b' stroke-width='6'/%3E%3Crect x='30' y='28' width='40' height='14' rx='4' fill='%23c9a24b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Budding<span> Frames</span></a>
+    <nav class="links" id="navLinks">
+      <a href="index.html#services">Photography</a>
+      <a href="index.html#frames">Frames</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="index.html#contact" class="btn btn-outline btn-sm">Visit Studio</a>
+      <a href="booking.html" class="btn btn-gold btn-sm btn-book">Book Now</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="index.html">Home</a><span class="sep">/</span>
+    <span class="current">Book Your Frame</span>
+  </div>
+</div>
+
+<!-- ============ BOOKING HERO ============ -->
+<section class="bk-hero">
+  <div class="bk-hero-glow" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="wrap bk-hero-inner">
+    <span class="eyebrow">Custom Frame Booking</span>
+    <h1>Book Your <em>Custom Photo Frame</em></h1>
+    <p>Upload your favorite memories and we'll transform them into beautiful premium frames.</p>
+    <div class="bk-hero-badges">
+      <span>🖼 Handcrafted in Erode</span>
+      <span>🚚 Doorstep Delivery</span>
+      <span>💬 WhatsApp Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING FORM ============ -->
+<section style="padding-top:64px;">
+  <div class="wrap">
+    <div class="bk-layout">
+
+      <!-- ================= LEFT: FORM ================= -->
+      <div>
+        <form id="bkForm" novalidate>
+
+          <!-- Customer Information -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">1</span> Customer Information</h3>
+
+            <div class="bk-field">
+              <label for="bkName">Customer Name <span class="req">*</span></label>
+              <input type="text" id="bkName" class="bk-input" placeholder="e.g. Priya Lakshmi" autocomplete="name">
+              <div class="bk-error-msg" id="errName">Please enter your full name.</div>
+            </div>
+
+            <div class="bk-grid-2">
+              <div class="bk-field">
+                <label for="bkPhone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="bkPhone" class="bk-input" placeholder="10-digit mobile number" autocomplete="tel">
+                <div class="bk-error-msg" id="errPhone">Enter a valid 10-digit mobile number.</div>
+              </div>
+              <div class="bk-field">
+                <label for="bkEmail">Email Address <span class="req">*</span></label>
+                <input type="email" id="bkEmail" class="bk-input" placeholder="you@example.com" autocomplete="email">
+                <div class="bk-error-msg" id="errEmail">Enter a valid email address.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upload Photo -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">2</span> Upload Photo <span class="opt">(optional — you can also send it later on WhatsApp)</span></h3>
+
+            <div class="bk-upload" id="bkUploadZone">
+              <input type="file" id="bkFileInput" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
+              <div class="bk-upload-icon">📤</div>
+              <p class="bk-upload-main"><span>Browse files</span> or drag &amp; drop your photo here</p>
+              <p class="bk-upload-sub">Supported: PNG, JPG, JPEG &nbsp;·&nbsp; Maximum 10MB</p>
+            </div>
+
+            <div class="bk-preview" id="bkPreview">
+              <img id="bkPreviewImg" src="" alt="Preview">
+              <div class="bk-preview-info">
+                <div class="bk-fname" id="bkPreviewName"></div>
+                <div class="bk-fsize" id="bkPreviewSize"></div>
+              </div>
+              <div class="bk-preview-actions">
+                <button type="button" class="bk-change" id="bkChangeFile">Change</button>
+                <button type="button" class="bk-remove" id="bkRemoveFile">Remove</button>
+              </div>
+            </div>
+
+            <div class="bk-error-msg" id="bkUploadError"></div>
+          </div>
+
+          <!-- Frame Selection -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">3</span> Select Frame &amp; Size</h3>
+
+            <div class="bk-grid-2">
+              <div class="bk-field">
+                <label for="bkFrame">Select Frame <span class="req">*</span></label>
+                <select id="bkFrame" class="bk-select">
+                  <option value="">Choose a frame collection</option>
+                  <option value="classic-teak">Classic Teak Wood</option>
+                  <option value="antique-gold">Antique Gold</option>
+                  <option value="matte-black">Matte Black Modern</option>
+                  <option value="premium-acrylic">Premium Acrylic Float</option>
+                  <option value="vintage-frame">Vintage Frame</option>
+                  <option value="floating-frame">Floating Frame</option>
+                  <option value="wedding-frame">Wedding Collection</option>
+                  <option value="baby-frame">Baby Collection</option>
+                  <option value="family-frame">Family Collection</option>
+                  <option value="certificate-frame">Certificate Frame</option>
+                  <option value="canvas-frame">Canvas Frame</option>
+                  <option value="mirror-frame">Mirror Frame</option>
+                </select>
+                <div class="bk-error-msg" id="errFrame">Please select a frame.</div>
+              </div>
+
+              <div class="bk-field">
+                <label for="bkSize">Select Frame Size <span class="req">*</span></label>
+                <select id="bkSize" class="bk-select">
+                  <option value="">Choose a size</option>
+                  <option value="8x10">8 × 10 inch</option>
+                  <option value="10x12">10 × 12 inch</option>
+                  <option value="12x18">12 × 18 inch</option>
+                  <option value="16x20">16 × 20 inch</option>
+                  <option value="18x24">18 × 24 inch</option>
+                  <option value="20x30">20 × 30 inch</option>
+                  <option value="custom">Custom Size</option>
+                </select>
+                <div class="bk-error-msg" id="errSize">Please select a size.</div>
+              </div>
+            </div>
+
+            <div class="bk-grid-2 bk-custom-size" id="bkCustomSizeBlock">
+              <div class="bk-field">
+                <label for="bkCustomWidth">Width (inches)</label>
+                <input type="number" id="bkCustomWidth" class="bk-input" placeholder="e.g. 14" min="1" step="0.5">
+                <div class="bk-error-msg" id="errCustomWidth">Enter a valid width.</div>
+              </div>
+              <div class="bk-field">
+                <label for="bkCustomHeight">Height (inches)</label>
+                <input type="number" id="bkCustomHeight" class="bk-input" placeholder="e.g. 18" min="1" step="0.5">
+                <div class="bk-error-msg" id="errCustomHeight">Enter a valid height.</div>
+              </div>
+            </div>
+
+            <div class="bk-field" style="margin-top:22px;">
+              <label>Quantity</label>
+              <div class="bk-qty">
+                <button type="button" id="bkQtyMinus" aria-label="Decrease quantity">−</button>
+                <input type="number" id="bkQty" value="1" min="1" max="20">
+                <button type="button" id="bkQtyPlus" aria-label="Increase quantity">+</button>
+              </div>
+              <div class="bk-qty-hint">Maximum 20 per order</div>
+            </div>
+          </div>
+
+          <!-- Delivery Address -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">4</span> Delivery Address</h3>
+
+            <div class="bk-grid-2">
+              <div class="bk-field">
+                <label for="bkHouse">House No <span class="req">*</span></label>
+                <input type="text" id="bkHouse" class="bk-input" placeholder="e.g. 25/4">
+                <div class="bk-error-msg" id="errHouse">Please enter your house number.</div>
+              </div>
+              <div class="bk-field">
+                <label for="bkStreet">Street</label>
+                <input type="text" id="bkStreet" class="bk-input" placeholder="e.g. Rajiv Nagar Street">
+              </div>
+            </div>
+
+            <div class="bk-grid-2">
+              <div class="bk-field">
+                <label for="bkArea">Area</label>
+                <input type="text" id="bkArea" class="bk-input" placeholder="e.g. Mayapuram, R N Pudur">
+              </div>
+              <div class="bk-field">
+                <label for="bkCity">City <span class="req">*</span></label>
+                <input type="text" id="bkCity" class="bk-input" placeholder="e.g. Erode">
+                <div class="bk-error-msg" id="errCity">Please enter your city.</div>
+              </div>
+            </div>
+
+            <div class="bk-grid-3">
+              <div class="bk-field">
+                <label for="bkDistrict">District</label>
+                <input type="text" id="bkDistrict" class="bk-input" placeholder="e.g. Erode">
+              </div>
+              <div class="bk-field">
+                <label for="bkState">State <span class="req">*</span></label>
+                <input type="text" id="bkState" class="bk-input" placeholder="e.g. Tamil Nadu">
+                <div class="bk-error-msg" id="errState">Please enter your state.</div>
+              </div>
+              <div class="bk-field">
+                <label for="bkPincode">Pincode <span class="req">*</span></label>
+                <input type="text" id="bkPincode" class="bk-input" placeholder="6-digit pincode" maxlength="6" inputmode="numeric">
+                <div class="bk-error-msg" id="errPincode">Enter a valid 6-digit pincode.</div>
+              </div>
+            </div>
+
+            <div class="bk-field">
+              <label for="bkNotes">Special Instructions</label>
+              <textarea id="bkNotes" class="bk-textarea" placeholder="e.g. Please crop the image. Add white border. Deliver before birthday."></textarea>
+            </div>
+          </div>
+
+          <!-- Delivery Option -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">5</span> Delivery Option</h3>
+            <div class="bk-option-list">
+              <label class="bk-option bk-selected">
+                <input type="radio" name="bkDelivery" value="standard" checked>
+                <div class="bk-option-body"><b>Standard Delivery</b><span>5–6 days · ₹99</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkDelivery" value="express">
+                <div class="bk-option-body"><b>Express Delivery</b><span>2–3 days · ₹249</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkDelivery" value="pickup">
+                <div class="bk-option-body"><b>Store Pickup</b><span>Ready next day · Free — R N Pudur, Erode</span></div>
+              </label>
+            </div>
+
+            <div class="bk-field" style="margin-top:20px;">
+              <label class="bk-option" style="cursor:pointer;">
+                <input type="checkbox" id="bkGiftWrap">
+                <div class="bk-option-body"><b>Add Premium Gift Wrap</b><span>Gold ribbon &amp; gift box · ₹149</span></div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="bk-card bk-fade">
+            <h3><span class="bk-num">6</span> Payment Method</h3>
+            <div class="bk-payment-grid">
+              <label class="bk-option bk-selected">
+                <input type="radio" name="bkPayment" value="cod" checked>
+                <div class="bk-option-body"><b>Cash on Delivery</b><span>Pay when it arrives</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkPayment" value="upi">
+                <div class="bk-option-body"><b>UPI</b><span>GPay, PhonePe, Paytm</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkPayment" value="credit">
+                <div class="bk-option-body"><b>Credit Card</b><span>Visa, MasterCard, Amex</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkPayment" value="debit">
+                <div class="bk-option-body"><b>Debit Card</b><span>All major banks</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkPayment" value="netbanking">
+                <div class="bk-option-body"><b>Net Banking</b><span>All major banks</span></div>
+              </label>
+              <label class="bk-option">
+                <input type="radio" name="bkPayment" value="razorpay">
+                <div class="bk-option-body"><b>Razorpay Checkout</b><span>Cards, UPI &amp; wallets in one</span></div>
+              </label>
+            </div>
+
+            <div class="bk-terms">
+              <input type="checkbox" id="bkTerms">
+              <label for="bkTerms">I agree to the <a href="#">Terms &amp; Conditions</a> and understand my order will be confirmed after review.</label>
+            </div>
+            <div class="bk-error-msg" id="errTerms">Please accept the Terms &amp; Conditions to continue.</div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ================= RIGHT: PRICE SUMMARY ================= -->
+      <div>
+        <div class="bk-summary bk-fade">
+          <h3>Order Summary</h3>
+
+          <div class="bk-sum-row"><span>Selected Frame</span><span id="sumFrame">—</span></div>
+          <div class="bk-sum-row"><span>Frame Size</span><span id="sumSize">—</span></div>
+          <div class="bk-sum-row"><span>Quantity</span><span id="sumQty">1</span></div>
+          <div class="bk-sum-row"><span>Delivery Charge</span><span id="sumDelivery">₹99</span></div>
+          <div class="bk-sum-row"><span>Gift Wrap</span><span id="sumGiftWrap">—</span></div>
+          <div class="bk-sum-row bk-discount"><span>Discount</span><span id="sumDiscount">—</span></div>
+          <div class="bk-sum-row"><span>GST (5%)</span><span id="sumGst">₹0</span></div>
+
+          <div class="bk-sum-total">
+            <span>Total Amount</span>
+            <span id="sumTotal">₹0</span>
+          </div>
+
+          <div class="bk-coupon">
+            <input type="text" id="bkCouponCode" placeholder="Coupon code (e.g. WELCOME10)">
+            <button type="button" class="btn btn-outline btn-sm" id="bkCouponApply" style="color:var(--gold-light);border-color:var(--gold-light);">Apply</button>
+          </div>
+          <div class="bk-coupon-msg" id="bkCouponMsg"></div>
+
+          <div class="bk-summary-ctas">
+            <button type="button" class="btn btn-gold" id="bkPlaceOrderBtn">
+              <span class="bk-spinner"></span>
+              <span class="bk-btn-label">Place Order</span>
+            </button>
+            <button type="button" class="btn btn-outline" id="bkWhatsAppBtn">💬 Order via WhatsApp</button>
+          </div>
+
+          <p class="bk-summary-note">Prices are indicative and finalised after we review your photo and custom requirements. Razorpay integration ready for online payments.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    &copy; <span id="year"></span> Budding_Frames, Erode. All rights reserved. &nbsp;|&nbsp; Built with ❤ for our customers.
+  </div>
+</footer>
+
+<!-- ============ SUCCESS MODAL ============ -->
+<div class="bk-modal-overlay" id="bkModalOverlay">
+  <div class="bk-modal">
+    <div class="bk-modal-check">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#c9a24b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3>Booking Successful</h3>
+    <p>Thank you! Your frame booking has been received. We'll reach out on WhatsApp to confirm your photo and design.</p>
+    <div class="bk-modal-details">
+      <div class="bk-md-row"><b>Booking ID</b><span id="bkModalBookingId">—</span></div>
+      <div class="bk-md-row"><b>Estimated Delivery</b><span id="bkModalDeliveryDate">—</span></div>
+    </div>
+    <button type="button" class="btn btn-gold" id="bkTrackOrderBtn">Track My Order</button>
+    <button type="button" class="bk-modal-close" id="bkModalClose">Close</button>
+  </div>
+</div>
+
+<!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+<a href="#" class="wa-float" id="waFloat" aria-label="Chat on WhatsApp" data-wa="Hi Budding_Frames! I'd like help booking a custom photo frame.">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.1c2.3 1.3 4.9 1.9 7.7 1.9 8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.9 1.3 1.3-4.8-.3-.5C3.2 21 2.6 18.6 2.6 16 2.6 8.6 8.6 2.6 16 2.6S29.4 8.6 29.4 16 23.4 29.3 16 29.3zm7.3-9.8c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.1-.8-.2-.4-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 3.5 1.4 3.5.9 4.1.9.6 0 2-.7 2.3-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
